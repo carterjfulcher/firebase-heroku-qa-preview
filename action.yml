@@ -1,0 +1,15 @@
+name: "Firebase Heroku Preview"
+description: "Upon a pull request, deploys your front end to a firebase hosting preview channel, and your backend to a heroku preview."
+inputs:
+  who-to-greet:  # id of input
+    description: 'Who to greet'
+    required: true
+    default: 'World'
+outputs:
+  time: # id of output
+    description: 'The time we greeted you'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.who-to-greet }}
